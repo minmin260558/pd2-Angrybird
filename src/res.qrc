@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="ground.png">image/GROUND.png</file>
+        <file alias="bird.png">image/Normal_Bird_1.png</file>
+        <file>image/arch.png</file>
+        <file>image/birdie 2.png</file>
+        <file>image/birdie 3.png</file>
+        <file>image/birdie 4.png</file>
+        <file>image/horizontal.png</file>
+        <file>image/vertical.png</file>
+        <file>image/bg.png</file>
+        <file>image/boxing.png</file>
+        <file>image/killedboxing.png</file>
+        <file>image/1108260729044d487b6165a6f0.jpg</file>
+        <file>image/win.png</file>
+        <file>image/lose.png</file>
+        <file>image/exit.png</file>
+        <file>image/restart.png</file>
+        <file>image/wood.png</file>
+        <file>image/vSTONE.png</file>
+        <file>image/HSTONE.png</file>
+        <file>image/vwood.png</file>
+        <file>image/hwood.png</file>
+        <file>image/20131210124050890 (1).png</file>
+        <file>image/shooter.png</file>
+    </qresource>
+</RCC>
