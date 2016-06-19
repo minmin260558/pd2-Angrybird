@@ -16,7 +16,6 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QWidget>
 
@@ -28,7 +27,6 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QGraphicsView *graphicsView;
-    QLabel *birdnum;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -55,11 +53,6 @@ public:
 
         horizontalLayout->addWidget(graphicsView);
 
-        birdnum = new QLabel(centralWidget);
-        birdnum->setObjectName(QStringLiteral("birdnum"));
-
-        horizontalLayout->addWidget(birdnum);
-
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -70,7 +63,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        birdnum->setText(QApplication::translate("MainWindow", "TextLabel", 0));
     } // retranslateUi
 
 };

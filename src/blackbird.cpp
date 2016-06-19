@@ -10,7 +10,9 @@ BlackBird::BlackBird(float x, float y, float radius, QTimer *timer,int wid_x,int
 void BlackBird::ability(QList<GameItem*> &list){
 
     abilityused = true;
+
     this->g_body->SetLinearVelocity(b2Vec2(10,12));
-    this->g_body->SetAngularVelocity(50.0f);
+    this->g_body->SetAngularVelocity(80.0f);
+
 
 }

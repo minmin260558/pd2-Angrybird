@@ -23,5 +23,8 @@
         <file>image/hwood.png</file>
         <file>image/20131210124050890 (1).png</file>
         <file>image/shooter.png</file>
+        <file>.</file>
+        <file>image/sound-effects-bird-misc-a10.mp3</file>
+        <file>image/sound-effects-globe-bird-launch-3.mp3</file>
     </qresource>
 </RCC>

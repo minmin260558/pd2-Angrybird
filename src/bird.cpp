@@ -11,7 +11,7 @@ Bird::Bird(float x, float y, float radius, QTimer *timer, b2World *world):GameIt
     _world = world;
     b2BodyDef bodydef;
     bodydef.type = b2_staticBody;
-    bodydef.position.Set(_x,_y);
+    bodydef.position.Set(x,y);
     bodydef.userData = this;
     g_body = _world->CreateBody(&bodydef);
     connect(timer, SIGNAL(timeout()), this,SLOT(paint()));
@@ -20,6 +20,11 @@ b2Vec2 Bird::setpos(double x,double y){
 
     b2Vec2 b2d = GameItem::setpos(x, y);
     g_body->SetTransform(b2d, g_body->GetAngle());
+}
+void Bird::getpos(float x,float y){
+    _x=x*g_worldsize.width()/g_windowsize.width()+g_size.width()/2;
+    _y=(1.0f-y/g_windowsize.height())*g_worldsize.height()-g_size.height()/2;
+
 }
 
 

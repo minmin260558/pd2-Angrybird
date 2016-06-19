@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
+QT       += core gui \
+            multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = AngryThing
@@ -99,4 +99,5 @@ LIBS += -L. -lBox2D
 RESOURCES += \
     res.qrc
 
-DISTFILES +=
+DISTFILES += \
+    image/sound-effects-bird-misc-a10.mp3

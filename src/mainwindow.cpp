@@ -37,15 +37,15 @@ void MainWindow::checkdead(){
 
     else if(countbird != 7){
     int deadnum = 0;
-    for(int i=12;i<itemList.size();i++)
+    for(int i=11;i<itemList.size();i++)
         if((abs(itemList[i]->g_body->GetLinearVelocity().y)<0.03&&abs(itemList[i]->g_body->GetLinearVelocity().x)<0.03)||itemList[i]->get_b2d_x()>40.0f)
             deadnum += ((Bird*)itemList[i])->triggered;
-    if(abs(((Pig*)itemList[2])->get_b2d_x()-((Pig*)itemList[2])->_x)>1.0&&win==false){
-        ((Pig*)itemList[2])->changepic();
+    if(abs(((Pig*)itemList[1])->get_b2d_x()-((Pig*)itemList[1])->_x)>1.0&&win==false){
+        ((Pig*)itemList[1])->changepic();
         win = true;
     }
     cout << "C: " << deadnum << endl;
-    if(deadnum == itemList.size()-12){
+    if(deadnum == itemList.size()-11){
         for(int i=0;i<deadnum;i++){
             delete itemList[itemList.size()-1];
             itemList.pop_back();
@@ -114,8 +114,14 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
     if(event->type() == QEvent::MouseButtonRelease&&birdie->triggered==false&&countbird<6)
     {
         mouseclick = 0;
+        birdie->getpos(static_cast<QMouseEvent*>(event)->x()+mouse_diff.x(),static_cast<QMouseEvent*>(event)->y()+mouse_diff.y());
         birdie->shoot();
+        QMediaPlayer *player = new QMediaPlayer;
+        player->setMedia(QUrl("qrc:/image/sound-effects-globe-bird-launch-3.mp3"));
+        player->setVolume(50);
+        player->play();
         birdie->setLinearVelocity(b2Vec2(-(birdie->get_b2d_x()-4.2)*3.5,-(birdie->get_b2d_y()-7.2)*5.0));
+
         /* TODO : add your code here */
         //std::cout << "Release !" << std::endl ;
     }
@@ -123,8 +129,8 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
     return false;
 }
 void MainWindow::keyPressEvent(QKeyEvent *event){
-    if(event->key() == Qt::Key_A&&(((Bird*)itemList[12])->triggered==true)&&(((Bird*)itemList[12])->abilityused==false)){
-        ((Bird*)itemList[12])->ability(this->itemList);
+    if(event->key() == Qt::Key_A&&(((Bird*)itemList[11])->triggered==true)&&(((Bird*)itemList[11])->abilityused==false)){
+        ((Bird*)itemList[11])->ability(this->itemList);
     }
 
     event->accept();
@@ -169,6 +175,9 @@ void MainWindow::StartGame(){
     scene = new QGraphicsScene(0,0,width() - 2,height() - 2);
     ui->graphicsView->setScene(scene);
     scene->addPixmap(QPixmap(":/image/20131210124050890 (1).png"));
+    QPixmap arch1(":/image/shooter.png");
+    scene->addPixmap(arch1.scaled(arch1.size()/1.6))->setPos(100,342);
+
     // Create world
     world = new b2World(b2Vec2(0.0f, -9.8f));
     _score = new Score(scene);
@@ -181,7 +190,7 @@ void MainWindow::StartGame(){
 
     // Create ground (You can edit here)
     itemList.push_back(new Land(16, 1.5, 32, 3, QPixmap(":/ground.png").scaled(GameItem::WorldSize2WindowSize(32, 3)),world,scene));
-    itemList.push_back(new Arch(4.0,5.1, 1.5, 2.5, QPixmap(":/image/shooter.png").scaled(GameItem::WorldSize2WindowSize(1.9, 3.5)),world,scene));
+//    itemList.push_back(new Arch(4.0,5.1, 1.5, 2.5, QPixmap(":/image/shooter.png").scaled(GameItem::WorldSize2WindowSize(1.9, 3.5)),world,scene));
     // Create bird (You can edit here)
     Pig *pig = new Pig(15.0f,5.0f,0.65f,&timer,this->width(),this->height(),world,scene);
     itemList.push_back(pig);

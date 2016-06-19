@@ -24,6 +24,7 @@ public:
     float _x,_y;
     bool triggered;
     bool abilityused;
+    virtual void getpos(float x,float y);
 
 };
 

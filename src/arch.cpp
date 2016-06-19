@@ -7,6 +7,7 @@ Arch::Arch(float x, float y, float w, float h, QPixmap pixmap, b2World *world, Q
 
     // Create body
     b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
     bodyDef.userData = this;
     bodyDef.position.Set(x,y);
     g_body = world->CreateBody(&bodyDef);

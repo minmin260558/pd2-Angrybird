@@ -24,6 +24,8 @@
 #include "cmath"
 #include <QKeyEvent>
 #include <score.h>
+#include <QtMultimedia/QMediaPlayer>
+
 class EndWindow;
 namespace Ui {
 class MainWindow;

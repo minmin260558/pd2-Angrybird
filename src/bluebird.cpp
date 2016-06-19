@@ -15,6 +15,6 @@ BlueBird::BlueBird(float x, float y, float radius, QTimer *timer,int wid_x,int w
 void BlueBird::ability(QList<GameItem*> &list){
     abilityused = true;
     list.push_back(new BlueBird(this->get_b2d_x(),this->get_b2d_y(),0.65f,_timer,_wid_x,_wid_y,_world,_scene));
-    ((Bird*)list[13])->shoot();
-    ((Bird*)list[13])->setLinearVelocity(b2Vec2(this->g_body->GetLinearVelocity().x+2,this->g_body->GetLinearVelocity().y+2));
+    ((Bird*)list[12])->shoot();
+    ((Bird*)list[12])->setLinearVelocity(b2Vec2(this->g_body->GetLinearVelocity().x+2,this->g_body->GetLinearVelocity().y+2));
 }
